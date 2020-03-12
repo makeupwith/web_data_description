@@ -1,0 +1,105 @@
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Webデータ記述基礎</title>
+  <!-- link -->
+  <link rel="stylesheet" href="assets/css/controller.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="assets/libs/qimessaging/1.0/jquery.min.js"></script>
+  <script src="assets/libs/qimessaging/1.0/qimessaging.js"></script>
+  <script>
+      window.onload = function() {
+      var session = new QiSession("10.0.1.2");
+  
+      session.socket().on('connect', function() {
+          console.log("connected!");
+      });
+  
+      $('#test-btn').on('click', function(){
+          console.log('[TEST]');
+          var target = $('#target').val();
+          // target.innerText = document.forms.form1.id_text.value;
+          session.service("ALTextToSpeech").done(function(tts) {
+              // tts.say("Hello!");
+              tts.say(target);
+              console.log(target);
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+    }    
+  </script>
+</head>
+<body>
+  <header>
+    <div class="page-title">Webデータ記述基礎</div>
+  </header>
+  <div class="main">
+    <div class="navi-drawer">
+      <a href="index.html">
+        <i class="material-icons">home</i>
+        HOME
+      </a>
+      <a href="nao.html">
+        <i class="material-icons">adb</i>
+        NAO
+      </a>
+    </div>
+    <div class="content">
+      <div class="content-title">
+        <div>
+          <h5>NAO Web Controller</h5>
+          <img src="assets/img/nao.png" alt="nao image">
+        </div>
+        <form action="" method="post" onsubmit="return false;">
+          <textarea id="target" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
+          <button type="button" id="test-btn">発話</button>
+        </form>    
+      </div>
+      <div class="content-main">
+        <div class="text-speech dashboard">
+          <h5>発話</h5>
+          <p>テキストを入力することでNAOに自由に発話させることが可能です。</p>
+          <form action="" method="post" onsubmit="return false;">
+            <textarea id="target" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
+            <button type="button" id="test-btn">発話</button>
+          </form> 
+        </div>
+        <div class="battery dashboard">
+          <h5>バッテリー残量</h5>
+          <p>NAOのバッテリー残量を確認することができます。</p>
+          <p>残量：８０%</p>
+        </div>
+        <div class="audio-device dashboard">
+          <h5>音量調整</h5>
+          <p>テキストを入力することでNAOの音量を自由に調節することが可能です。</p>
+        </div>
+        <div class="animation-speech dashboard">
+          <h5>アニメーション発話</h5>
+          <p>テキストを入力することでNAOにアニメーション付きで発話させることが可能です。</p>
+          <form action="" method="post" onsubmit="return false;">
+            <textarea id="target" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
+            <button type="button" id="test-btn">発話</button>
+          </form> 
+        </div>
+        <div class="dashboard">
+          <h5>モーション</h5>
+          <p>NAOを特定のモーションで動かすことが可能です。</p>
+          <button>休憩</button>
+          <button>起こす</button>
+        </div>
+        <div class="dashboard">
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <p class="copyright-text">©︎ 2020 Copyright：Kato Yudai</p>
+  </footer>
+</body>
+</html>
