@@ -4,33 +4,128 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Webデータ記述基礎</title>
-  <!-- link -->
+  <!--- #link --->
+  <!-- css -->
   <link rel="stylesheet" href="assets/css/controller.css">
   <link rel="stylesheet" href="assets/css/reset.css">
+  <!-- font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap">
+  <!-- icon -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- #script -->
   <script src="assets/libs/qimessaging/1.0/jquery.min.js"></script>
   <script src="assets/libs/qimessaging/1.0/qimessaging.js"></script>
   <script>
-      window.onload = function() {
+    window.onload = function() {
+      console.log("test");
       var session = new QiSession("10.0.1.2");
-  
+
       session.socket().on('connect', function() {
           console.log("connected!");
       });
-  
-      $('#test-btn').on('click', function(){
+
+      // $('#battery-check').on('click', function(){
+      //     console.log('battery-check');
+      //     // var target = document.getElementById("battery-value");
+      //     session.service("ALBattery").done(function(tts) {
+      //         tts.enablePowerMonitoring();
+      //         var value = tts.getBatteryCharge();
+      //         // var str = String(value);
+      //         // target.innerHTML = '<p>' + str + '/<p>';
+      //         console.log(value);
+      //     }).fail(function(error) {
+      //         console.log("Error!");
+      //     });
+      // });
+
+      $('#text-speech').on('click', function(){
           console.log('[TEST]');
-          var target = $('#target').val();
+          var target = $('#text').val();
           // target.innerText = document.forms.form1.id_text.value;
           session.service("ALTextToSpeech").done(function(tts) {
-              // tts.say("Hello!");
               tts.say(target);
               console.log(target);
           }).fail(function(error) {
               console.log("Error!");
           });
       });
+
+      $('#anime-speech').on('click', function(){
+          console.log('[TEST]');
+          var target = $('#anime-text').val();
+          // target.innerText = document.forms.form1.id_text.value;
+          session.service("ALAnimatedSpeech").done(function(tts) {
+              tts.say(target);
+              console.log(target);
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+
+      $('#rest-motion').on('click', function(){
+          console.log('[REST]');
+          session.service("ALMotion").done(function(tts) {
+              tts.rest();
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+
+      $('#wakeup-motion').on('click', function(){
+          console.log('[WAKEUP]');
+          session.service("ALMotion").done(function(tts) {
+              tts.wakeUp();
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+
+      // --- #ALAudioDevice ----
+      // ================
+      // ## getOutputVolume
+      // $('#get-volume').on('click', function(){
+      //     console.log('[GET_VOLUME]');
+      //     var target = document.getElementById("volume");
+      //     session.service("ALAudioDevice").done(function(tts) {
+      //         var str = tts.getOutputVolume();
+      //         target.innerHTML = '<p>' + str + '</p>';
+      //         // console.log(value);
+      //     }).fail(function(error) {
+      //         console.log("Error!");
+      //     });
+      // });
+
+      // ## setOutputVolume
+      $('#set-volume').on('click', function(){
+          console.log('[SET_VOLUME]');
+          var target = $('#volume').val();
+          var value = Number(target)
+          session.service("ALAudioDevice").done(function(tts) {
+              tts.setOutputVolume(value);
+              console.log(target);
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+
+      $('#sit').on('click', function(){
+          session.service("ALRobotPosture").done(function(tts) {
+              console.log('[SIT]');
+              tts.goToPosture('Sit', 0.8);
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+
+      $('#stand').on('click', function(){
+          session.service("ALRobotPosture").done(function(tts) {
+              console.log('[STAND]');
+              tts.goToPosture('Stand', 0.8);
+          }).fail(function(error) {
+              console.log("Error!");
+          });
+      });
+
     }    
   </script>
 </head>
@@ -65,32 +160,45 @@
           <h5>発話</h5>
           <p>テキストを入力することでNAOに自由に発話させることが可能です。</p>
           <form action="" method="post" onsubmit="return false;">
-            <textarea id="target" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
-            <button type="button" id="test-btn">発話</button>
+            <textarea id="text" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
+            <button type="button" id="text-speech">発話</button>
           </form> 
         </div>
-        <div class="battery dashboard">
+        <!-- <div class="battery dashboard">
           <h5>バッテリー残量</h5>
           <p>NAOのバッテリー残量を確認することができます。</p>
-          <p>残量：８０%</p>
-        </div>
+          <p id="battery-value">残量：８０%</p>
+          <button type="button" id="battery-check">確認</button>
+        </div> -->
         <div class="audio-device dashboard">
           <h5>音量調整</h5>
           <p>テキストを入力することでNAOの音量を自由に調節することが可能です。</p>
+          <form action="" method="post" onsubmit="return false;">
+            <textarea id="volume" cols="30" rows="2" placeholder="例)60"></textarea>
+            <button type="button" id="set-volume">音量</button>
+          </form>
+          <!-- <p id="volume">音量：０</p> -->
+          <!-- <button type="button" id="volume-control">確認</button> -->
         </div>
         <div class="animation-speech dashboard">
           <h5>アニメーション発話</h5>
           <p>テキストを入力することでNAOにアニメーション付きで発話させることが可能です。</p>
           <form action="" method="post" onsubmit="return false;">
-            <textarea id="target" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
-            <button type="button" id="test-btn">発話</button>
+            <textarea id="anime-text" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
+            <button type="button" id="anime-speech">発話</button>
           </form> 
         </div>
         <div class="dashboard">
           <h5>モーション</h5>
           <p>NAOを特定のモーションで動かすことが可能です。</p>
-          <button>休憩</button>
-          <button>起こす</button>
+          <button type="button" id="rest-motion">休憩</button>
+          <button type="button" id="wakeup-motion">起こす</button>
+        </div>
+        <div class="dashboard">
+          <h5>姿勢</h5>
+          <p>NAOを特定の姿勢で動かすことが可能です。</p>
+          <button type="button" id="sit">座る</button>
+          <button type="button" id="stand">起立</button>
         </div>
         <div class="dashboard">
 
