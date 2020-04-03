@@ -128,7 +128,10 @@
       </div>
       <div class="content-main">
         <div class="text-speech dashboard">
-          <h5>発話</h5>
+          <div class="dashboard-title">
+            <i class="material-icons">speaker</i>
+            <h5>発話</h5>
+          </div>
           <p>テキストを入力することでNAOに自由に発話させることが可能です。</p>
           <form action="" method="post" onsubmit="return false;">
             <textarea id="text" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
@@ -136,7 +139,10 @@
           </form> 
         </div>
         <div class="audio-device dashboard">
-          <h5>音量調整</h5>
+          <div class="dashboard-title">
+            <i class="material-icons">volume_up</i>
+            <h5>音量調節</h5>
+          </div>
           <p>テキストを入力することでNAOの音量を自由に調節することが可能です。</p>
           <form action="" method="post" onsubmit="return false;">
             <textarea id="volume" cols="30" rows="2" placeholder="例)60"></textarea>
@@ -144,7 +150,10 @@
           </form>
         </div>
         <div class="animation-speech dashboard">
-          <h5>アニメーション発話</h5>
+          <div class="dashboard-title">
+            <i class="material-icons">speaker</i>
+            <h5>アニメーション発話</h5>
+          </div>
           <p>テキストを入力することでNAOにアニメーション付きで発話させることが可能です。</p>
           <form action="" method="post" onsubmit="return false;">
             <textarea id="anime-text" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
@@ -152,7 +161,10 @@
           </form> 
         </div>
         <div class="dashboard">
-          <h5>モーション</h5>
+          <div class="dashboard-title">
+            <i class="material-icons">accessibility_new</i>
+            <h5>モーション</h5>
+          </div>
           <p>NAOを特定のモーションで動かすことが可能です。</p>
           <button type="button" id="rest-motion">休憩</button>
           <button type="button" id="wakeup-motion">起こす</button>
