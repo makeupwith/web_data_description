@@ -2,6 +2,7 @@
 
 /* ---------------------
     - 1. common setting 
+      - 1.1 material design / typography
     - 2. header
     - 3. main
       - 3.1 navigation drawer
@@ -21,12 +22,65 @@ a {
 }
 
 p {
+  /* font-size: 16px; */
+}
+
+/* 1.1 material design / typography */
+h1 {
+  font-size: 6rem !important;
+}
+
+h2 {
+  font-size: 4rem !important;
+}
+
+h3 {
+  font-size: 3rem !important;
+}
+
+h4 {
+  font-size: 2rem !important;
 }
 
 h5 {
+  font-size: 1.5rem !important;
+}
+
+h6 {
   font-size: 1.2rem !important;
   font-weight: 500 !important;
 }
+
+.subtitle1 {
+  font-size: 1rem;
+}
+
+.subtitle2 {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.body1 {
+  font-size: 1rem;
+}
+
+.body2 {
+  font-size: 0.875rem;
+}
+
+.button {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.caption {
+  font-size: 0.75rem;
+}
+
+.overline {
+  font-size: 0.625rem;
+}
+
 
 /* =====================
   2. header 
@@ -40,7 +94,7 @@ header {
 .page-title {
   height: 64px;
   color: #ffffff;
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   display: table-cell;
   padding-left: 24px;
   vertical-align: middle;
@@ -51,7 +105,7 @@ header {
   3. main
 ===================== */
 .main {
-  height: calc(100% - 128px);
+  height: calc(100vh - 128px) !important;
   display: flex;
 }
 
@@ -70,6 +124,10 @@ header {
   width: 200px;
 }
 
+.navi-drawer a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
 .navi-drawer i {
   display: flex;
   height: 24px;
@@ -86,15 +144,10 @@ header {
 .content-title {
   color: #ffffff;
   background-color: rgba(50, 11, 134, 0.6);
-  padding: 32px 48px;
 }
 
 .content-title h5 {
   padding-bottom: 1rem;
-}
-
-.content-main {
-  padding: 32px 48px;
 }
 
 .content-main h5 {
