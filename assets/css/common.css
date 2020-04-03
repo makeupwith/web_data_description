@@ -1,0 +1,180 @@
+@charset "utf-8";
+
+/* ---------------------
+    - 1. common setting 
+      - 1.1 material design / typography
+    - 2. header
+    - 3. main
+      - 3.1 navigation drawer
+      - 3.2 content
+    - 4. footer
+--------------------- */
+
+/* =====================
+  1. common setting
+===================== */
+body {
+  font-family: 'Noto Sans JP' !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  /* font-size: 16px; */
+}
+
+/* 1.1 material design / typography */
+h1 {
+  font-size: 6rem !important;
+}
+
+h2 {
+  font-size: 4rem !important;
+}
+
+h3 {
+  font-size: 3rem !important;
+}
+
+h4 {
+  font-size: 2rem !important;
+}
+
+h5 {
+  font-size: 1.5rem !important;
+}
+
+h6 {
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+}
+
+.subtitle1 {
+  font-size: 1rem;
+}
+
+.subtitle2 {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.body1 {
+  font-size: 1rem;
+}
+
+.body2 {
+  font-size: 0.875rem;
+}
+
+.button {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.caption {
+  font-size: 0.75rem;
+}
+
+.overline {
+  font-size: 0.625rem;
+}
+
+
+/* =====================
+  2. header 
+===================== */
+header {
+  height: 64px;
+  background-color: #673AB7;
+  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+}
+
+.page-title {
+  height: 64px;
+  color: #ffffff;
+  font-size: 1.25rem;
+  display: table-cell;
+  padding-left: 24px;
+  vertical-align: middle;
+}
+
+
+/* =====================
+  3. main
+===================== */
+.main {
+  height: calc(100vh - 128px) !important;
+  display: flex;
+}
+
+/* 3.1 navigation drawer */
+.navi-drawer {
+  height: 100%;
+  max-width: 200px;
+  padding-top: 0.5rem;
+}
+
+.navi-drawer a {
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 48px;
+  display: flex;
+  align-items: center;
+  width: 200px;
+}
+
+.navi-drawer a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.navi-drawer i {
+  display: flex;
+  height: 24px;
+  margin: 0 1rem;
+}
+
+/* 3.2 content */
+.content {
+  height: 100%;
+  width: calc(100% - 200px);
+  background-color: #F5F5F5;
+}
+
+.content-title {
+  color: #ffffff;
+  background-color: rgba(50, 11, 134, 0.6);
+}
+
+.content-title h5 {
+  padding-bottom: 1rem;
+}
+
+.content-main h5 {
+  color: rgba(0, 0, 0, 0.87);
+  padding-bottom: 16px;
+}
+
+.content-main p {
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 24px;
+}
+
+
+/* =====================
+  4. footer 
+===================== */
+footer {
+  height: 64px;
+  width: 100%;
+  background-color: #9A67EA;
+  display: table !important;
+  text-align: center;
+}
+
+.copyright-text {
+  color: #ffffff;
+  font-size: 1rem;
+  display: table-cell;
+  vertical-align: middle;
+}
