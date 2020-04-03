@@ -146,11 +146,15 @@ header {
   background-color: rgba(50, 11, 134, 0.6);
 }
 
-.content-title h5 {
+.content-title h6 {
   padding-bottom: 1rem;
 }
 
-.content-main h5 {
+.content-title p {
+  line-height: 24px;
+}
+
+.content-main h6 {
   color: rgba(0, 0, 0, 0.87);
   padding-bottom: 16px;
 }
