@@ -44,8 +44,8 @@
   padding-bottom: 1rem;
 }
 
-.content-title p {
-  padding-top: 40px;
+.content-title p:first-child {
+  padding-top: 32px;
 }
 
 .content-title img {
