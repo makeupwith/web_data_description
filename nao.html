@@ -44,7 +44,11 @@
           <h5>NAO Web Controller</h5>
           <img src="assets/img/nao.png" alt="nao image">
         </div>
-        <p>本ページは、NAOのWebコントローラーです。<br> IP Address：<span id="ip"></span> <br> 接続状態：<span id="connect">未接続</span> </p>  
+        <div>
+          <p>本ページは、NAOのWebコントローラーです。</p>
+          <p>接続状態：<span id="connect">未接続</span></p>
+          <p>IP Address(NAO)：<span id="ip_nao">未入力</span></p> 
+        </div>
         <form action="" method="post" onsubmit="return false;">
           <textarea id="nao_ip" cols="30" rows="2" placeholder="NAOのIP Address"></textarea>
           <button type="button" id="ip-btn">IPアドレスを設定</button>
