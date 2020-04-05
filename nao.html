@@ -17,88 +17,7 @@
   <!-- #script -->
   <script src="assets/libs/qimessaging/1.0/jquery.min.js"></script>
   <script src="assets/libs/qimessaging/1.0/qimessaging.js"></script>
-  <script>
-    window.onload = function() {
-      console.log("test");
-      var session = new QiSession("10.0.1.2");
-
-      session.socket().on('connect', function() {
-          console.log("connected!");
-      });
-
-      $('#text-speech').on('click', function(){
-          console.log('[TEST]');
-          var target = $('#text').val();
-          session.service("ALTextToSpeech").done(function(tts) {
-              tts.say(target);
-              console.log(target);
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-      $('#anime-speech').on('click', function(){
-          console.log('[TEST]');
-          var target = $('#anime-text').val();
-          session.service("ALAnimatedSpeech").done(function(tts) {
-              tts.say(target);
-              console.log(target);
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-      $('#rest-motion').on('click', function(){
-          console.log('[REST]');
-          session.service("ALMotion").done(function(tts) {
-              tts.rest();
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-      $('#wakeup-motion').on('click', function(){
-          console.log('[WAKEUP]');
-          session.service("ALMotion").done(function(tts) {
-              tts.wakeUp();
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-      // ## setOutputVolume
-      $('#set-volume').on('click', function(){
-          console.log('[SET_VOLUME]');
-          var target = $('#volume').val();
-          var value = Number(target)
-          session.service("ALAudioDevice").done(function(tts) {
-              tts.setOutputVolume(value);
-              console.log(target);
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-      $('#sit').on('click', function(){
-          session.service("ALRobotPosture").done(function(tts) {
-              console.log('[SIT]');
-              tts.goToPosture('Sit', 0.8);
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-      $('#stand').on('click', function(){
-          session.service("ALRobotPosture").done(function(tts) {
-              console.log('[STAND]');
-              tts.goToPosture('Stand', 0.8);
-          }).fail(function(error) {
-              console.log("Error!");
-          });
-      });
-
-    }    
-  </script>
+  <script src="assets/js/nao.js"></script>
 </head>
 <body>
   <header>
@@ -125,10 +44,15 @@
           <h5>NAO Web Controller</h5>
           <img src="assets/img/nao.png" alt="nao image">
         </div>
+        <div>
+          <p>本ページは、NAOのWebコントローラーです。</p>
+          <p>接続状態：<span id="connect">未接続</span></p>
+          <p>IP Address(NAO)：<span id="ip_nao">未入力</span></p> 
+        </div>
         <form action="" method="post" onsubmit="return false;">
-          <textarea id="target" cols="30" rows="2" placeholder="例)こんにちわ"></textarea>
-          <button type="button" id="test-btn">発話</button>
-        </form>    
+          <textarea id="nao_ip" cols="30" rows="2" placeholder="NAOのIP Address"></textarea>
+          <button type="button" id="ip-btn">IPアドレスを設定</button>
+        </form>
       </div>
       <div class="content-main">
         <div class="text-speech dashboard">
@@ -183,7 +107,12 @@
           <button type="button" id="stand">起立</button>
         </div>
         <div class="dashboard">
-
+          <div class="dashboard-title">
+            <i class="material-icons">photo_camera</i>
+            <h5>写真</h5>
+          </div>
+          <p>NAOのカメラを用いて写真を撮影することが可能です。</p>
+          <button type="button" id="take-picture">撮影</button>
         </div>
       </div>
     </div>
