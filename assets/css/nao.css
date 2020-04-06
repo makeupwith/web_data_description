@@ -26,8 +26,9 @@
 ===================== */
 
 /* 3.1 navigation drawer */
-.navi-drawer a:nth-child(2) {
+.navi-drawer li:nth-child(7) a {
   color: #9A67EA;
+  background-color: rgba(153, 103, 234, 0.26);
 }
 
 /* 3.2 content */

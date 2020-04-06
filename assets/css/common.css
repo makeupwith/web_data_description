@@ -127,6 +127,11 @@ header {
   display: flex;
   align-items: center;
   width: 200px;
+  border-radius: 0px 24px 24px 0px;
+  -webkit-user-select: none;
+	   -moz-user-select: none;
+	    -ms-user-select: none;
+	        user-select: none;
 }
 
 .navi-drawer a:hover {
@@ -137,6 +142,27 @@ header {
   display: flex;
   height: 24px;
   margin: 0 1rem;
+}
+
+.navi-drawer i:nth-child(2) {
+  display: flex;
+  margin-left: auto;
+}
+
+.navi-drawer .folding {
+  display: none;
+}
+
+.navi-drawer .inversion {
+  transform: scale(1, 1);
+}
+
+.navi-drawer .doc-list a {
+  font-size: 14px;
+  line-height: 40px;
+  padding-left: 24px;
+  width: 176px;
+  border-radius: 0px 20px 20px 0px;
 }
 
 /* 3.2 content */
