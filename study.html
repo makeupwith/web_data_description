@@ -14,26 +14,31 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- link / favicon -->
   <link rel="shortcut icon" href="assets/img/favicon.ico">
+  <script src="assets/js/style.js"></script>
 </head>
 <body>
   <header>
     <div class="page-title">Webデータ記述基礎</div>
   </header>
   <div class="main">
-    <div class="navi-drawer">
-      <a href="index.html">
-        <i class="material-icons">home</i>
-        HOME
-      </a>
-      <a href="nao.html">
-        <i class="material-icons">adb</i>
-        NAO
-      </a>
-      <a href="study.html">
-        <i class="material-icons">comment</i>
-        CONCLUSION
-      </a>
-    </div>
+    <nav class ="navi-drawer">
+      <ul>
+        <li><a href="index.html"><i class="material-icons">home</i>ホーム</a></li>
+        <li>
+          <a onclick="folding()">
+            <i class="material-icons">description</i>
+            講義資料
+            <i class="material-icons inversion">expand_more</i>
+          </a>
+        </li>
+        <li class="doc-list folding"><a href="lec_doc01.html">1.　はじめに</a></li>
+        <li class="doc-list folding"><a href="lec_doc02.html">2.　Webの基礎知識</a></li>
+        <li class="doc-list folding"><a href="lec_doc03.html">3.　実験手順</a></li>
+        <li class="doc-list folding"><a href="lec_doc04.html">4.　レポート提出</a></li>
+        <li><a href="nao.html"><i class="material-icons">android</i>NAO</a></li>
+        <li><a href="study.html"><i class="material-icons">emoji_objects</i>考察</a></li>
+      </ul>
+    </nav>
     <div class="content">
       <div class="content-title">
         <h6>考察</h6>
