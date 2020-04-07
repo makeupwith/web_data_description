@@ -15,6 +15,7 @@
 ===================== */
 body {
   font-family: 'Noto Sans JP' !important;
+  background-color: #F5F5F5;
 }
 
 a {
@@ -123,15 +124,18 @@ header {
   3. main
 ===================== */
 .main {
-  height: calc(100vh - 128px) !important;
+  min-height: calc(100vh - 128px) !important;
+  /* height: calc(100vh - 128px) !important; */
   display: flex;
+  overflow: auto;
 }
 
 /* 3.1 navigation drawer */
 .navi-drawer {
-  height: 100%;
+  min-height: calc(100vh - 128px) !important;
   max-width: 200px;
   padding-top: 0.5rem;
+  background-color: #FFFFFF;
 }
 
 .navi-drawer a {
@@ -180,12 +184,11 @@ header {
 
 /* 3.2 content */
 .content {
-  height: 100%;
   width: calc(100% - 200px);
-  background-color: #F5F5F5;
 }
 
 .content-title {
+  height: 64px;
   color: #ffffff;
   background-color: rgba(50, 11, 134, 0.6);
   padding: 32px 64px;
@@ -200,13 +203,19 @@ header {
 }
 
 .content-main {
-  padding: 16px 64px;
+  padding: 16px 64px 64px 64px;
   max-width: 960px;
+  min-height: calc(100% - 208px);
+}
+
+.content-main h5 {
+  color: rgba(0, 0, 0, 0.87);
+  padding: 16px 0px 16px;
 }
 
 .content-main h6 {
   color: rgba(0, 0, 0, 0.87);
-  padding: 16px 0px;
+  padding: 8px 0px 16px;
 }
 
 .content-main p {
@@ -219,8 +228,16 @@ header {
   padding-left: 16px;
 }
 
+.content-main .top {
+  padding-top: 16px;
+}
+
+.content-main .bottom {
+  padding-bottom: 16px;
+}
+
 .content-main .article-section {
-  padding: 8px 0 24px 0;
+  padding: 24px 0 24px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
