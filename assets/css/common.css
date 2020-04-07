@@ -86,6 +86,19 @@ h6 {
   font-size: 0.625rem;
 }
 
+/* 1.1 material design / color */
+.text-primary {
+  color: rgba(0, 0, 0, 0.87) !important;
+}
+
+.text-secondary {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+.text-disable {
+  color: rgba(0, 0, 0, 0.38) !important;
+}
+
 
 /* =====================
   2. header 
@@ -175,9 +188,10 @@ header {
 .content-title {
   color: #ffffff;
   background-color: rgba(50, 11, 134, 0.6);
+  padding: 32px 64px;
 }
 
-.content-title h6 {
+.content-title h5 {
   padding-bottom: 1rem;
 }
 
@@ -185,14 +199,29 @@ header {
   line-height: 24px;
 }
 
+.content-main {
+  padding: 16px 64px;
+  max-width: 960px;
+}
+
 .content-main h6 {
   color: rgba(0, 0, 0, 0.87);
-  padding-bottom: 16px;
+  padding: 16px 0px;
 }
 
 .content-main p {
   color: rgba(0, 0, 0, 0.6);
   line-height: 24px;
+  padding-bottom: 8px;
+}
+
+.content-main .indent {
+  padding-left: 16px;
+}
+
+.content-main .article-section {
+  padding: 8px 0 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 

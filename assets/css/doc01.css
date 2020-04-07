@@ -35,32 +35,6 @@
   background-color: rgba(153, 103, 234, 0.26);
 }
 
-.content-title {
-  padding: 32px 48px;
-}
-
-.content-main {
-  padding: 32px 48px;
-}
-
-.content-main p {
-  padding-bottom: 8px;
-  /* padding-left: 24px; */
-}
-
-.content-main p:first-child {
-  padding-left: 0px;
-}
-
-.content-main h6 {
-  padding-top: 24px;
-}
-
-.content-main h6:first-child {
-  padding-top: 0px;
-}
-
-
 /* =====================
   4. footer 
 ===================== */
