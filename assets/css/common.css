@@ -203,7 +203,7 @@ header {
 }
 
 .content-main {
-  padding: 16px 64px 64px 64px;
+  padding: 0px 64px 64px 64px;
   max-width: 960px;
   min-height: calc(100% - 208px);
 }
@@ -237,7 +237,7 @@ header {
 }
 
 .content-main .article-section {
-  padding: 24px 0 24px 0;
+  padding: 24px 0 16px 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
