@@ -1,6 +1,3 @@
-// 初期値
-var ipAddress = "10.0.1.2";
-
 // # cookieの設定
 var limite = 1; //Cookieの期限（1日）
 var nowdate = new Date(); //現在の日付データを取得
@@ -10,9 +7,12 @@ var expires = "expires=" + deadline + "; ";
 var path = "path=/";
 var dt = new Date('1999-12-31T23:59:59Z'); // 過去の日付をGMT形式に変換
 
+// 初期値
+var ipAddress = "10.0.1.1";
+
 // Winodwがロードされた際
 window.onload = function() {
-  var session;
+  var session = new QiSession(this.ipAddress);
 
   // # cookieにIPアドレスが保存されていた場合、NAOとの接続を行う
   if(this.navigator.cookieEnabled) {
@@ -55,7 +55,21 @@ window.onload = function() {
   // # IPアドレスの入力時
   $('#ip-btn').on('click', function() {
     var naoIp = $('#nao_ip').val();
+    this.ipAddress = naoIp;
     session = new QiSession(naoIp);
+    session.socket().on('connect', function() {
+      console.log("[CONNECTED]");
+      var connect = document.getElementById('connect');
+      connect.innerHTML = "接続中";
+    }).on('disconnect', function() {
+      console.log("[DISCONNECTED]");
+      var connect = document.getElementById('connect');
+      connect.innerHTML = "接続断"
+    }).on('error', function() {
+      console.log("[CONNECTION ERROR]")
+      var connect = document.getElementById('connect');
+      connect.innerHTML = "接続エラー"
+    });
     // ## IPアドレスをcookieに保存
     var cookievalue = "ip_nao=" + naoIp + "; ";
     document.cookie = cookievalue + expires + path; 
